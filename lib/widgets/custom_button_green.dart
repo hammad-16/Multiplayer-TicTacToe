@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 
-class CustomButton extends StatefulWidget {
+class CustomButtonGreen extends StatefulWidget {
   final VoidCallback onTap; // Function callback
   final String text;
 
-  const CustomButton({super.key, required this.onTap, required this.text});
+  const CustomButtonGreen({super.key, required this.onTap, required this.text});
 
   @override
-  _CustomButtonState createState() => _CustomButtonState();
+  _CustomButtonGreenState createState() => _CustomButtonGreenState();
 }
 
-class _CustomButtonState extends State<CustomButton> {
+class _CustomButtonGreenState extends State<CustomButtonGreen> {
   bool isHovered = false;
   bool isPressed = false;
 
@@ -36,8 +36,9 @@ class _CustomButtonState extends State<CustomButton> {
           decoration: BoxDecoration(
             gradient: const LinearGradient(
               colors: [
-                Color(0xFFFF0044), // Bright Red
-                Color(0xFFAA0033), // Deep Red
+                Color(0xFF00FF00), // Neon Green
+                Color(0xFF00CC00), // Bright Green
+                Color(0xFF009900), // Deep Green
               ],
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
@@ -45,27 +46,27 @@ class _CustomButtonState extends State<CustomButton> {
             borderRadius: BorderRadius.circular(isHovered ? 24 : 0),
             boxShadow: [
               BoxShadow(
-                color: const Color(0xFFFF0044).withOpacity(isHovered ? 0.6 : 0.4),
-                offset: const Offset(-10, -6),
-                blurRadius: 20,
+                color: const Color(0xFF00FF00).withOpacity(isHovered ? 0.8 : 0.6),
+                offset: const Offset(-15, -10),
+                blurRadius: 30,
                 spreadRadius: -5,
               ),
               BoxShadow(
-                color: const Color(0xFFAA0033).withOpacity(isHovered ? 0.5 : 0.3),
-                offset: const Offset(10, -6),
-                blurRadius: 20,
+                color: const Color(0xFF00CC00).withOpacity(isHovered ? 0.8 : 0.6),
+                offset: const Offset(15, -10),
+                blurRadius: 30,
                 spreadRadius: -5,
               ),
               BoxShadow(
-                color: const Color(0xFF770022).withOpacity(isHovered ? 0.4 : 0.2),
-                offset: const Offset(10, 6),
-                blurRadius: 20,
+                color: const Color(0xFF009900).withOpacity(isHovered ? 0.8 : 0.6),
+                offset: const Offset(15, 10),
+                blurRadius: 30,
                 spreadRadius: -5,
               ),
               BoxShadow(
-                color: const Color(0xFF550011).withOpacity(isHovered ? 0.3 : 0.1),
-                offset: const Offset(-10, 6),
-                blurRadius: 20,
+                color: const Color(0xFF006600).withOpacity(isHovered ? 0.8 : 0.6),
+                offset: const Offset(-15, 10),
+                blurRadius: 30,
                 spreadRadius: -5,
               ),
             ],
@@ -85,7 +86,7 @@ class _CustomButtonState extends State<CustomButton> {
               child: Text(
                 widget.text,
                 style: const TextStyle(
-                  color: Color(0xFFFF0055), // Neon Red Text
+                  color: Color(0xFF00FF00), // Neon Green text
                   fontWeight: FontWeight.bold,
                   fontSize: 16,
                 ),
