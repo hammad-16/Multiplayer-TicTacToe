@@ -9,19 +9,19 @@ static SocketClient? _instance;
 
 SocketClient._internal() //Private constructor
 {
-  socket = IO.io('http://192.168.2.105:6969',
+   socket = IO.io('http://192.168.2.105:6969',
   <String,dynamic>{
-    'transports':['websocket'],
-    'autoConnect': false,
+    "transports":["websocket"],
+    "autoConnect": false,
   });
   //Pass the server, for now using our ip address
   socket!.connect();
 }
 
-static SocketClient? get instance{
+static SocketClient get instance{
 
   _instance ??=SocketClient._internal();
-  return _instance;
+  return _instance!;
 
 }
 
