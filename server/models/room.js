@@ -20,7 +20,7 @@ const roomSchema = new mongoose.Schema({
          },
          players: [playerSchema],
          //Will tell if the room is joinable
-         isjoin: {
+         isJoin: {
          type: Boolean,
          default: true
          },
