@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:tictactoe/provider/room_data_provider.dart';
 import 'package:tictactoe/resources/socket_methods.dart';
 import 'package:tictactoe/widgets/scoreboard.dart';
+import 'package:tictactoe/widgets/tic_tac_toe_board.dart';
 import 'package:tictactoe/widgets/waiting_lobby.dart';
 
 class GameScreen extends StatefulWidget {
@@ -19,12 +20,10 @@ class _GameScreenState extends State<GameScreen> {
   @override
   void initState() {
     super.initState();
-    _socketMethods.updateRoomListener(context);
     _socketMethods.updatePlayersStateListener(context);
-
-
-    // Note: You had this line twice, removed the duplicate
-    // _socketMethods.updatePlayersStateListener(context);
+    _socketMethods.updateRoomListener(context);
+    _socketMethods.pointIncreaseListener(context);
+    _socketMethods.endGameListener(context);
   }
 
   @override
@@ -32,13 +31,15 @@ class _GameScreenState extends State<GameScreen> {
     RoomDataProvider roomDataProvider = Provider.of<RoomDataProvider>(context);
 
     return Scaffold(
-        body: roomDataProvider.roomData?['isJoin'] == true
+        body: roomDataProvider.roomData['isJoin']==true
             ? const WaitingLobby()
-            : const SafeArea(
+            : SafeArea(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                 Scoreboard()
+                const Scoreboard(),
+                const TicTacToeBoard(),
+                 Text('${roomDataProvider.roomData['turn']['nickname']}\'s turn')
               ],
             )
         )

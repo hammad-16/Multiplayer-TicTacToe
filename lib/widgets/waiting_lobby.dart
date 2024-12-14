@@ -33,8 +33,11 @@ class _WaitingLobbyState extends State<WaitingLobby> {
       children: [
         const Text("Waiting for a player to join"),
         const SizedBox(height: 20,),
-        CustomTextField(controller: roomIdController, hintText: "",
-          isReadOnly: true,)
+        CustomTextField(
+          controller: roomIdController,
+          hintText: "",
+          isReadOnly: true,
+        )
 
 
       ],
